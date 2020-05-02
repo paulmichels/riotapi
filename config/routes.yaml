@@ -1,0 +1,113 @@
+#Champion Masteries API
+
+api_champion_masteries:
+  path:       /{region}/champion-masteries/by-summoner/{encryptedSummonerId}
+  controller: App\Controller\ChampionMastery::getChampionMasteries
+  methods:    GET
+
+api_champion_mastery:
+  path:       /{region}/champion-masteries/by-summoner/{encryptedSummonerId}/by-champion/{championId}
+  controller: App\Controller\ChampionMastery::getChampionMastery
+  methods:    GET
+
+api_champion_mastery_score:
+  path:       /{region}/scores/by-summoner/{encryptedSummonerId}
+  controller: App\Controller\ChampionMastery::getChampionMasteryScore
+  methods:    GET
+
+# Champion API
+
+api_champion_rotation:
+  path:       /{region}/champion-rotations
+  controller: App\Controller\ChampionRotation::getChampionRotations
+  methods:    GET
+
+# League API
+
+api_league_challenger:
+  path:       /{region}/challengerleagues/by-queue/{queue}
+  controller: App\Controller\League::getLeagueChallenger
+  methods:    GET
+
+api_league_entries_for_summoner:
+  path:       /{region}/entries/by-summoner/{encryptedSummonerId}
+  controller: App\Controller\League::getLeagueEntriesForSummoner
+  methods:    GET
+
+api_league_entries:
+  path:       /{region}/entries/{queue}/{tier}/{division}
+  controller: App\Controller\League::getLeagueEntries
+  methods:    GET
+
+api_league_grandmaster:
+  path:       /{region}/grandmasterleagues/by-queue/{queue}
+  controller: App\Controller\League::getLeagueGrandmaster
+  methods:    GET
+
+api_league_by_id:
+  path:       /{region}/leagues/{leagueId}
+  controller: App\Controller\League::getLeagueById
+  methods:    GET
+
+api_league_master:
+  path:       /{region}/masterleagues/by-queue/{queue}
+  controller: App\Controller\League::getLeagueMaster
+  methods:    GET
+
+# LoL Status API
+
+api_status_data:
+  path:       /{region}/shard-data
+  controller: App\Controller\LolStatus::getStatusData
+  methods:    GET
+
+# Match API
+
+api_match:
+  path:       /{region}/matches/{matchId}
+  controller: App\Controller\Match::getMatch
+  methods:    GET
+
+api_matchlist_by_account:
+  path:       /{region}/matchlists/by-account/{encryptedSummonerId}
+  controller: App\Controller\Match::getMatchlistByAccount
+  methods:    GET
+
+api_match_timelines:
+  path:       /{region}/timelines/by-match/{matchId}
+  controller: App\Controller\Match::getMatchTimeline
+  methods:    GET
+
+# Spectator API
+
+api_current_game_info:
+  path:       /{region}/active-games/by-summoner/{encryptedSummonerId}
+  controller: App\Controller\Spectator::getCurrentGameInfo
+  methods:    GET
+
+api_featured_game:
+  path:       /{region}/featured-games
+  controller: App\Controller\Spectator::getFeaturedGames
+  methods:    GET
+
+# Summoner API
+
+api_summoner_by_account:
+  path:       /{region}/summoners/by-account/{accountId}
+  controller: App\Controller\Summoner::getSummonerByAccountId
+  methods:    GET
+
+api_summoner_by_name:
+  path:       /{region}/summoners/by-name/{name}
+  controller: App\Controller\Summoner::getSummonerByName
+  methods:    GET
+
+api_summoner_by_puuid:
+  path:       /{region}/summoners/by-puuid/{PUUID}
+  controller: App\Controller\Summoner::getSummonerByPUUID
+  methods:    GET
+
+api_summoner:
+  path:       /{region}/summoners/{encryptedSummonerId}
+  controller: App\Controller\Summoner::getSummoner
+  methods:    GET
