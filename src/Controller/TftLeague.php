@@ -4,11 +4,9 @@ namespace App\Controller;
 
 use Exception;
 use RiotAPI\LeagueAPI\LeagueAPI;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class Match extends AbstractController {
+class TftLeague {
 
     private $api;
 
@@ -27,11 +25,11 @@ class Match extends AbstractController {
         }
     }
 
-    public function getMatch($region, $matchId)
+    public function getLeagueChallenger($region)
     {
         try{
             $this->api->setRegion($region);
-            return new Response(json_encode($this->api->getMatch($matchId)));
+            return new Response(json_encode($this->api->getTFTChallengerLeague()));
         } catch (Exception $e) {
             return new Response(json_encode(array(
                 "status" => array(
@@ -42,19 +40,11 @@ class Match extends AbstractController {
         }
     }
 
-    public function getMatchlistByAccount(Request $request, $region, $encryptedSummonerId)
+    public function getLeagueEntriesForSummoner($region, $encryptedSummonerId)
     {
         try{
             $this->api->setRegion($region);
-            return new Response(json_encode($this->api->getMatchlistByAccount(
-                $encryptedSummonerId,
-                $request->query->get('queue'),
-                $request->query->get('champion'),
-                $request->query->get('beginTime'),
-                $request->query->get('endTime'),
-                $request->query->get('beginIndex'),
-                $request->query->get('endIndex')
-            )));
+            return new Response(json_encode($this->api->getTFTLeagueEntriesForSummoner($encryptedSummonerId)));
         } catch (Exception $e) {
             return new Response(json_encode(array(
                 "status" => array(
@@ -65,11 +55,11 @@ class Match extends AbstractController {
         }
     }
 
-    public function getMatchTimeline($region, $matchId)
+    public function getLeagueEntries($region, $tier, $division)
     {
         try{
             $this->api->setRegion($region);
-            return new Response(json_encode($this->api->getMatchTimeline($matchId)));
+            return new Response(json_encode($this->api->getTFTLeagueEntries($tier, $division)));
         } catch (Exception $e) {
             return new Response(json_encode(array(
                 "status" => array(
@@ -80,11 +70,11 @@ class Match extends AbstractController {
         }
     }
 
-    public function getMatchesByTournament($region, $tournamentCode)
+    public function getGrandmasterLeague($region)
     {
         try{
             $this->api->setRegion($region);
-            return new Response(json_encode($this->api->getMatchIdsByTournamentCode($tournamentCode)));
+            return new Response(json_encode($this->api->getTFTGrandmasterLeague()));
         } catch (Exception $e) {
             return new Response(json_encode(array(
                 "status" => array(
@@ -95,11 +85,26 @@ class Match extends AbstractController {
         }
     }
 
-    public function getMatchByTournament($region, $matchId, $tournamentCode)
+    public function getMasterLeague($region)
     {
         try{
             $this->api->setRegion($region);
-            return new Response(json_encode($this->api->getMatchByTournamentCode($matchId, $tournamentCode)));
+            return new Response(json_encode($this->api->getTFTMasterLeague()));
+        } catch (Exception $e) {
+            return new Response(json_encode(array(
+                "status" => array(
+                    "status_code" => $e->getCode(),
+                    "message" => $e->getMessage()
+                )
+            )));
+        }
+    }
+
+    public function getLeagueById($region, $leagueId)
+    {
+        try{
+            $this->api->setRegion($region);
+            return new Response(json_encode($this->api->getTFTLeagueById($leagueId)));
         } catch (Exception $e) {
             return new Response(json_encode(array(
                 "status" => array(

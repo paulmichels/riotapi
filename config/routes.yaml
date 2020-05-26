@@ -1,3 +1,10 @@
+#Home
+home:
+  path:       /
+  controller: App\Controller\Home::index
+  methods:    GET
+
+
 #Champion Masteries API
 
 api_champion_masteries:
@@ -21,6 +28,34 @@ api_champion_rotation:
   path:       /{region}/champion-rotations
   controller: App\Controller\ChampionRotation::getChampionRotations
   methods:    GET
+
+# Clash API
+
+api_clash_players_by_summoner:
+  path:       /{region}/lol/clash/v1/players/by-summoner/{summonerId}
+  controller: App\Controller\Clash::getBySummoner
+  methods:    GET
+
+api_clash_teams:
+  path:       /{region}/lol/clash/v1/teams/{teamId}
+  controller: App\Controller\Clash::getTeam
+  methods:    GET
+
+api_clash_tournaments:
+  path:       /{region}/lol/clash/v1/tournaments
+  controller: App\Controller\Clash::getTournaments
+  methods:    GET
+
+api_clash_tournaments_by_team:
+  path:       /{region}/lol/clash/v1/tournaments/by-team/{teamId}
+  controller: App\Controller\Clash::getTournamentsByTeam
+  methods:    GET
+
+api_clash_tournament:
+  path:       /{region}/lol/clash/v1/tournaments/{tournamentId}
+  controller: App\Controller\Clash::getTournament
+  methods:    GET
+
 
 # League API
 
@@ -61,6 +96,13 @@ api_status_data:
   controller: App\Controller\LolStatus::getStatusData
   methods:    GET
 
+# LoR Ranked
+
+api_lor_ranked_leaderboard:
+  path:       /{region}/lor/ranked/v1/leaderboards
+  controller: App\Controller\LorRanked::getLeaderboards
+  methods:    GET
+
 # Match API
 
 api_match:
@@ -76,6 +118,16 @@ api_matchlist_by_account:
 api_match_timelines:
   path:       /{region}/timelines/by-match/{matchId}
   controller: App\Controller\Match::getMatchTimeline
+  methods:    GET
+
+api_matches_tournament:
+  path:       /{region}/lol/match/v4/matches/by-tournament-code/{tournamentCode}/ids
+  controller: App\Controller\Match::getMatchesByTournament
+  methods:    GET
+
+api_match_tournament:
+  path:       /{region}/lol/match/v4/matches/{matchId}/by-tournament-code/{tournamentCode}
+  controller: App\Controller\Match::getMatchByTournament
   methods:    GET
 
 # Spectator API
@@ -111,3 +163,130 @@ api_summoner:
   path:       /{region}/summoners/{encryptedSummonerId}
   controller: App\Controller\Summoner::getSummoner
   methods:    GET
+
+# TFT League API
+
+api_tft_league_challenger:
+  path:       /{region}/tft/league/v1/challenger
+  controller: App\Controller\TftLeague::getLeagueChallenger
+  methods:    GET
+
+api_tft_league_entries_by_summoner:
+  path:       /{region}/tft/league/v1/entries/by-summoner/{encryptedSummonerId}
+  controller: App\Controller\TftLeague::getLeagueEntriesForSummoner
+  methods:    GET
+
+api_tft_league_entries_tier_division:
+  path:       /{region}/tft/league/v1/entries/{tier}/{division}
+  controller: App\Controller\TftLeague::getLeagueEntries
+  methods:    GET
+
+api_tft_league_grandmaster:
+  path:       /{region}/tft/league/v1/grandmaster
+  controller: App\Controller\TftLeague::getGrandmasterLeague
+  methods:    GET
+
+api_tft_league_by_id:
+  path:       /{region}/tft/league/v1/leagues/{leagueId}
+  controller: App\Controller\TftLeague::getLeagueById
+  methods:    GET
+
+api_tft_league_master:
+  path:       /{region}/tft/league/v1/master
+  controller: App\Controller\TftLeague::getMasterLeague
+  methods:    GET
+
+# TFT Match API
+
+api_tft_matches_by_puuid:
+  path:       /{region}/tft/match/v1/matches/by-puuid/{puuid}/ids
+  controller: App\Controller\TftMatch::getMatches
+  methods:    GET
+
+api_tft_match:
+  path:       /{region}/tft/match/v1/matches/{matchId}
+  controller: App\Controller\TftMatch::getMatch
+  methods:    GET
+
+# TFT Summoner API
+
+api_tft_summoner_by_account:
+  path:       /{region}/summoners/by-account/{accountId}
+  controller: App\Controller\TftSummoner::getSummonerByAccountId
+  methods:    GET
+
+api_tft_summoner_by_name:
+  path:       /{region}/summoners/by-name/{name}
+  controller: App\Controller\TftSummoner::getSummonerByName
+  methods:    GET
+
+api_tft_summoner_by_puuid:
+  path:       /{region}/summoners/by-puuid/{PUUID}
+  controller: App\Controller\TftSummoner::getSummonerByPUUID
+  methods:    GET
+
+api_tft_summoner_by_id:
+  path:       /{region}/summoners/{encryptedSummonerId}
+  controller: App\Controller\TftSummoner::getSummoner
+  methods:    GET
+
+# Third Party Code API
+
+api_third_party_code_by_summoner:
+  path:       /{region}/lol/platform/v4/third-party-code/by-summoner/{encryptedSummonerId}
+  controller: App\Controller\ThirdPartyCode::getBySummoner
+  methods:    GET
+
+# Tournament stub API
+
+api_tournament_stub_codes:
+  path:       /{region}/lol/tournament-stub/v4/codes
+  controller: App\Controller\TournamentStub::postCodes
+  methods:    POST
+
+api_tournament_stub_lobby_event:
+  path:       /{region}/lol/tournament-stub/v4/lobby-events/by-code/{tournamentCode}
+  controller: App\Controller\TournamentStub::getLobbyEvents
+  methods:    GET
+
+api_tournament_stub_providers:
+  path:       /{region}/lol/tournament-stub/v4/providers
+  controller: App\Controller\TournamentStub::postProvider
+  methods:    POST
+
+api_tournament_stub_tournaments:
+  path:       /{region}/lol/tournament-stub/v4/tournaments
+  controller: App\Controller\TournamentStub::postTournament
+  methods:    POST
+
+# Tournament API
+
+api_tournament_codes:
+  path:       /{region}/lol/tournament/v4/codes
+  controller: App\Controller\Tournament::postCode
+  methods:    POST
+
+api_tournament_get_codes:
+  path:       /{region}/lol/tournament/v4/codes/{tournamentCode}
+  controller: App\Controller\Tournament::getCode
+  methods:    GET
+
+api_tournament_put_codes:
+  path:       /{region}/lol/tournament/v4/codes/{tournamentCode}
+  controller: App\Controller\Tournament::putCode
+  methods:    PUT
+
+api_tournament_lobby_event:
+  path:       /{region}/lol/tournament/v4/lobby-events/by-code/{tournamentCode}
+  controller: App\Controller\Tournament::getLobbyEvents
+  methods:    GET
+
+api_tournament_providers:
+  path:       /{region}/lol/tournament/v4/providers
+  controller: App\Controller\Tournament::postProvider
+  methods:    POST
+
+api_tournament_tournaments:
+  path:       /{region}/lol/tournament/v4/tournaments
+  controller: App\Controller\Tournament::postTournament
+  methods:    POST
