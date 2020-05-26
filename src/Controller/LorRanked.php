@@ -6,7 +6,7 @@ use Exception;
 use RiotAPI\LeagueAPI\LeagueAPI;
 use Symfony\Component\HttpFoundation\Response;
 
-class LolStatus {
+class LorRanked {
 
     private $api;
 
