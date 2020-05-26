@@ -36,7 +36,7 @@ class ChampionRotation {
                     "status_code" => $e->getCode(),
                     "message" => $e->getMessage()
                 )
-            )));
+            )), $e->getCode());
         }
     }
 

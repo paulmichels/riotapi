@@ -36,7 +36,7 @@ class TftLeague {
                     "status_code" => $e->getCode(),
                     "message" => $e->getMessage()
                 )
-            )));
+            )), $e->getCode());
         }
     }
 
@@ -51,7 +51,7 @@ class TftLeague {
                     "status_code" => $e->getCode(),
                     "message" => $e->getMessage()
                 )
-            )));
+            )), $e->getCode());
         }
     }
 
@@ -66,7 +66,7 @@ class TftLeague {
                     "status_code" => $e->getCode(),
                     "message" => $e->getMessage()
                 )
-            )));
+            )), $e->getCode());
         }
     }
 
@@ -81,7 +81,7 @@ class TftLeague {
                     "status_code" => $e->getCode(),
                     "message" => $e->getMessage()
                 )
-            )));
+            )), $e->getCode());
         }
     }
 
@@ -96,7 +96,7 @@ class TftLeague {
                     "status_code" => $e->getCode(),
                     "message" => $e->getMessage()
                 )
-            )));
+            )), $e->getCode());
         }
     }
 
@@ -111,7 +111,7 @@ class TftLeague {
                     "status_code" => $e->getCode(),
                     "message" => $e->getMessage()
                 )
-            )));
+            )), $e->getCode());
         }
     }
 

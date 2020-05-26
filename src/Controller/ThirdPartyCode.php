@@ -36,7 +36,7 @@ class ThirdPartyCode {
                     "status_code" => $e->getCode(),
                     "message" => $e->getMessage()
                 )
-            )));
+            )), $e->getCode());
         }
     }
 }

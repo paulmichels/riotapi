@@ -38,7 +38,7 @@ class TftMatch extends AbstractController {
                     "status_code" => $e->getCode(),
                     "message" => $e->getMessage()
                 )
-            )));
+            )), $e->getCode());
         }
     }
 
@@ -53,7 +53,7 @@ class TftMatch extends AbstractController {
                     "status_code" => $e->getCode(),
                     "message" => $e->getMessage()
                 )
-            )));
+            )), $e->getCode());
         }
     }
 

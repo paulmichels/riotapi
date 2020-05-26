@@ -38,7 +38,7 @@ class Clash extends AbstractController {
                     "status_code" => $e->getCode(),
                     "message" => $e->getMessage()
                 )
-            )));
+            )), $e->getCode());
         }
     }
 
@@ -53,7 +53,7 @@ class Clash extends AbstractController {
                     "status_code" => $e->getCode(),
                     "message" => $e->getMessage()
                 )
-            )));
+            )), $e->getCode());
         }
     }
 
@@ -68,7 +68,7 @@ class Clash extends AbstractController {
                     "status_code" => $e->getCode(),
                     "message" => $e->getMessage()
                 )
-            )));
+            )), $e->getCode());
         }
     }
 
@@ -83,7 +83,7 @@ class Clash extends AbstractController {
                     "status_code" => $e->getCode(),
                     "message" => $e->getMessage()
                 )
-            )));
+            )), $e->getCode());
         }
     }
 
@@ -98,7 +98,7 @@ class Clash extends AbstractController {
                     "status_code" => $e->getCode(),
                     "message" => $e->getMessage()
                 )
-            )));
+            )), $e->getCode());
         }
     }
 
