@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class Match extends AbstractController {
+class Clash extends AbstractController {
 
     private $api;
 
@@ -27,11 +27,11 @@ class Match extends AbstractController {
         }
     }
 
-    public function getMatch($region, $matchId)
+    public function getBySummoner($region, $summonerId)
     {
         try{
             $this->api->setRegion($region);
-            return new Response(json_encode($this->api->getMatch($matchId)));
+            return new Response(json_encode());
         } catch (Exception $e) {
             return new Response(json_encode(array(
                 "status" => array(
@@ -42,19 +42,11 @@ class Match extends AbstractController {
         }
     }
 
-    public function getMatchlistByAccount(Request $request, $region, $encryptedSummonerId)
+    public function getTeam($region, $teamId)
     {
         try{
             $this->api->setRegion($region);
-            return new Response(json_encode($this->api->getMatchlistByAccount(
-                $encryptedSummonerId,
-                $request->query->get('queue'),
-                $request->query->get('champion'),
-                $request->query->get('beginTime'),
-                $request->query->get('endTime'),
-                $request->query->get('beginIndex'),
-                $request->query->get('endIndex')
-            )));
+            return new Response(json_encode());
         } catch (Exception $e) {
             return new Response(json_encode(array(
                 "status" => array(
@@ -65,11 +57,11 @@ class Match extends AbstractController {
         }
     }
 
-    public function getMatchTimeline($region, $matchId)
+    public function getTournaments($region)
     {
         try{
             $this->api->setRegion($region);
-            return new Response(json_encode($this->api->getMatchTimeline($matchId)));
+            return new Response(json_encode());
         } catch (Exception $e) {
             return new Response(json_encode(array(
                 "status" => array(
@@ -80,11 +72,11 @@ class Match extends AbstractController {
         }
     }
 
-    public function getMatchesByTournament($region, $tournamentCode)
+    public function getTournamentsByTeam($region, $teamId)
     {
         try{
             $this->api->setRegion($region);
-            return new Response(json_encode($this->api->getMatchIdsByTournamentCode($tournamentCode)));
+            return new Response(json_encode());
         } catch (Exception $e) {
             return new Response(json_encode(array(
                 "status" => array(
@@ -95,11 +87,11 @@ class Match extends AbstractController {
         }
     }
 
-    public function getMatchByTournament($region, $matchId, $tournamentCode)
+    public function getTournament($region, $tournamentId)
     {
         try{
             $this->api->setRegion($region);
-            return new Response(json_encode($this->api->getMatchByTournamentCode($matchId, $tournamentCode)));
+            return new Response(json_encode());
         } catch (Exception $e) {
             return new Response(json_encode(array(
                 "status" => array(
