@@ -257,7 +257,7 @@ api_tournament_stub_tournaments:
 api_tournament_codes:
   path:       /{region}/lol/tournament/v4/codes
   controller: App\Controller\Tournament::postCode
-  methods:    POST
+  methods:    [POST]
 
 api_tournament_get_codes:
   path:       /{region}/lol/tournament/v4/codes/{tournamentCode}
